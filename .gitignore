@@ -1,1 +1,9 @@
 .vs/
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+AnyCPU/

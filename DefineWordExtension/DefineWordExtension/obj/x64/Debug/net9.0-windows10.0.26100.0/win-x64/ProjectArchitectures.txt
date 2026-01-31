@@ -1,0 +1,1 @@
+D:\Code\CmdPalExt\Define-Word-Extension\DefineWordExtension\DefineWordExtension\DefineWordExtension.csproj;x64

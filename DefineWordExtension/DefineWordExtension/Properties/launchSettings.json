@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "DefineWordExtension (Package)": {
+      "commandName": "MsixPackage",
+      "doNotLaunchApp": true
+    },
+    "DefineWordExtension (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -65,6 +65,13 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
 
         try
         {
+            _items.Clear();
+            _items.Add(new ListItem(new NoOpCommand())
+            {
+                Title = "Loading..."
+            });
+            RaiseItemsChanged(0);
+
             var response = await _httpClient.GetAsync($"https://api.dictionaryapi.dev/api/v2/entries/en/{newSearch}", _cts.Token);
 
             if (response.IsSuccessStatusCode)

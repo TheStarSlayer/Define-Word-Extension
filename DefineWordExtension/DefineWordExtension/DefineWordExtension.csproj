@@ -70,7 +70,7 @@
 
     <!-- When publishing trimmed, make sure to treat trimming warnings as build errors -->
     <ILLinkTreatWarningsAsErrors>true</ILLinkTreatWarningsAsErrors>
-    <PackageCertificateThumbprint>EA131BAAF9396F081538020C3826C2FDF160D506</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>A32DD761528BA91300369A55B8B939BEBE85E3B5</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <DefaultLanguage>en-in</DefaultLanguage>
 

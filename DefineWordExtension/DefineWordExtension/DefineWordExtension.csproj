@@ -13,6 +13,7 @@
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <EnableMsixTooling>true</EnableMsixTooling>
     <Nullable>enable</Nullable>
+	<SelfContained>false</SelfContained>
   </PropertyGroup>
 
   <ItemGroup>
@@ -59,10 +60,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PublishSingleFile>true</PublishSingleFile>
-    <IsAotCompatible>true</IsAotCompatible>
+    <PublishSingleFile>false</PublishSingleFile>
+    <IsAotCompatible>false</IsAotCompatible>
 
-    <CsWinRTAotOptimizerEnabled>true</CsWinRTAotOptimizerEnabled>
+    <CsWinRTAotOptimizerEnabled>false</CsWinRTAotOptimizerEnabled>
     <CsWinRTAotWarningLevel>2</CsWinRTAotWarningLevel>
     <!-- Suppress DynamicallyAccessedMemberTypes.PublicParameterlessConstructor in fallback code path of Windows SDK projection -->
     <WarningsNotAsErrors>IL2081;$(WarningsNotAsErrors)</WarningsNotAsErrors>
@@ -89,7 +90,7 @@
   <PropertyGroup Condition="'$(Configuration)'!='Debug'">
     <!-- In Release builds, trimming is enabled by default. 
          feel free to disable this if needed -->
-    <PublishTrimmed>true</PublishTrimmed>
+    <PublishTrimmed>false</PublishTrimmed>
 
     <!-- In release, also ignore the aforementioned ILLink warning -->
     <ILLinkTreatWarningsAsErrors>false</ILLinkTreatWarningsAsErrors>

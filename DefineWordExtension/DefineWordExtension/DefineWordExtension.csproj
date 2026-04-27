@@ -71,6 +71,7 @@
     <ILLinkTreatWarningsAsErrors>true</ILLinkTreatWarningsAsErrors>
     <PackageCertificateThumbprint>C8D453ABD8EC0563566716A5DA99C81B3A56FD62</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <DefaultLanguage>en-in</DefaultLanguage>
 
   </PropertyGroup>
 

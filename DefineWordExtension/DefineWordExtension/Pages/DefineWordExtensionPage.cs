@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 
 namespace DefineWordExtension;
 
+#pragma warning disable CA1001 // Types that own disposable fields should be disposable
 internal sealed partial class DefineWordExtensionPage : DynamicListPage
+#pragma warning restore CA1001 // Types that own disposable fields should be disposable
 {
     private readonly List<IListItem> _items;
     private static readonly HttpClient _httpClient = new();
@@ -92,11 +94,22 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
                         foreach (JsonElement definition in meaning.GetProperty("definitions").EnumerateArray())
                         {
                             string defText = definition.GetProperty("definition").GetString() ?? "No definition available.";
-                            _items.Add(new ListItem(new NoOpCommand())
+
+#pragma warning disable IDE0017 // Simplify object initialization
+                            ListItem oneDef = new(new NoOpCommand())
                             {
                                 Title = $"{word} ({partOfSpeech})",
                                 Subtitle = defText
-                            });
+                            };
+#pragma warning restore IDE0017 // Simplify object initialization
+
+                            oneDef.Details = new Details()
+                            {
+                                Title = $"{word}",
+                                Body = $"**{partOfSpeech}**\n\n{defText}"
+                            };
+
+                            _items.Add(oneDef);
                         }
                     }
                 }

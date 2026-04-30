@@ -12,4 +12,5 @@ Go to Releases page to download the extension!
 
 
 
-https://github.com/user-attachments/assets/25d1e34c-d399-4618-b174-2b44cc779317
+
+https://github.com/user-attachments/assets/b143cb76-12e0-4f5d-8e5c-f9c1d68ed6ed

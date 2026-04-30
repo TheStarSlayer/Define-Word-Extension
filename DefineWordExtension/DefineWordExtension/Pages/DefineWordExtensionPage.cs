@@ -30,6 +30,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
 
         _items = [
             new ListItem(new NoOpCommand()) {
+                Icon = (IconInfo)new("📚"),
                 Title = "Define Word",
                 Subtitle = "Type a word to get its definition."
             }
@@ -48,6 +49,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
             _items.Clear();
             _items.Add(new ListItem(new NoOpCommand())
             {
+                Icon = (IconInfo)new("📚"),
                 Title = "Define Word",
                 Subtitle = "Type a word to get its definition."
             });
@@ -58,6 +60,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
             _items.Clear();
             _items.Add(new ListItem(new NoOpCommand())
             {
+                Icon = (IconInfo)new("📚"),
                 Title = "Define Word",
                 Subtitle = "Type a word to get its definition."
             });
@@ -70,6 +73,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
             _items.Clear();
             _items.Add(new ListItem(new NoOpCommand())
             {
+                Icon = (IconInfo)new("⏳"),
                 Title = "Loading..."
             });
             RaiseItemsChanged(0);
@@ -84,29 +88,68 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
                 _items.Clear();
 
                 foreach (JsonElement entry in root.EnumerateArray())
-                {
+                {   
                     string word = entry.GetProperty("word").GetString() ?? newSearch;
+                    string? phonetic = null;
+
+                    if (entry.TryGetProperty("phonetic", out JsonElement phoneticJSON))
+                        phonetic = phoneticJSON.GetString();
+                    else
+                    {
+                        if (entry.TryGetProperty("phonetics", out JsonElement phoneticArrayJSON))
+                        {
+                            foreach (JsonElement uphoneticJSON in phoneticArrayJSON.EnumerateArray())
+                            {
+                                if (uphoneticJSON.TryGetProperty("text", out JsonElement textPhonetic))
+                                {
+                                    if (textPhonetic.GetString() != null)
+                                    {
+                                        phonetic = textPhonetic.GetString();
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     JsonElement meanings = entry.GetProperty("meanings");
 
                     foreach (JsonElement meaning in meanings.EnumerateArray())
                     {
                         string partOfSpeech = meaning.GetProperty("partOfSpeech").GetString() ?? "unknown";
+                        string icon = partOfSpeech switch
+                        {
+                            "noun" => "📘",
+                            "verb" => "🔧",
+                            "adjective" => "🎨",
+                            "adverb" => "🚀",
+                            "interjection" => "💬",
+                            "exclamation" => "❗",
+                            "conjunction" => "🔗",
+                            "preposition" => "📐",
+                            _ => "📚"
+                        };
+
                         foreach (JsonElement definition in meaning.GetProperty("definitions").EnumerateArray())
                         {
                             string defText = definition.GetProperty("definition").GetString() ?? "No definition available.";
+                            string? example = null;
 
-#pragma warning disable IDE0017 // Simplify object initialization
+                            if (definition.TryGetProperty("example", out JsonElement exampleText))
+                                example = exampleText.GetString();
+
                             ListItem oneDef = new(new NoOpCommand())
                             {
-                                Title = $"{word} ({partOfSpeech})",
-                                Subtitle = defText
-                            };
-#pragma warning restore IDE0017 // Simplify object initialization
-
-                            oneDef.Details = new Details()
-                            {
-                                Title = $"{word}",
-                                Body = $"**{partOfSpeech}**\n\n{defText}"
+                                Icon = (IconInfo)new(icon),
+                                Title = $"{word} · {partOfSpeech}",
+                                Subtitle = defText,
+                                Details = new Details()
+                                {
+                                    Title = $"{word}",
+                                    Body = $"_{(!string.IsNullOrEmpty(phonetic) ? $"**{phonetic}** · " : "")}**{partOfSpeech}**_" +
+                                        $"\n\n{defText}" +
+                                        $"{(!string.IsNullOrEmpty(example) ? $"\n\n**Example**: *{example}*" : "")}"
+                                }
                             };
 
                             _items.Add(oneDef);
@@ -120,6 +163,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
                 _items.Clear();
                 _items.Add(new ListItem(new NoOpCommand())
                 {
+                    Icon = (IconInfo)new("❌"),
                     Title = "No definition found."
                 });
             }
@@ -130,6 +174,7 @@ internal sealed partial class DefineWordExtensionPage : DynamicListPage
             _items.Clear();
             _items.Add(new ListItem(new NoOpCommand())
             {
+                Icon = (IconInfo)new("😵"),
                 Title = "Error fetching definition."
             });
         }

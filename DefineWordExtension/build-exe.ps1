@@ -17,7 +17,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "Building $ExtensionName EXE installer..." -ForegroundColor GreenWrite-Host "Version: $Version" -ForegroundColor Yellow
+Write-Host "Building $ExtensionName EXE installer..." -ForegroundColor Green
+Write-Host "Version: $Version" -ForegroundColor Yellow
 Write-Host "Platforms: $($Platforms -join ', ')" -ForegroundColor Yellow
 
 $ProjectDir = Split-Path -Parent $MyInvocation.MyCommand.Path

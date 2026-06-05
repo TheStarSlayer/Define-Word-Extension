@@ -12,7 +12,7 @@ param(
     [string]$ExtensionName = "DefineWordExtension",  # Change to your extension name
     [string]$Configuration = "Release",
     [string]$Version = "1.3.0.0",  # Change to your version
-    [string]$Platform = @("x64", "arm64")
+    [string[]]$Platforms = @("x64", "arm64")
 )
 
 $ErrorActionPreference = "Stop"

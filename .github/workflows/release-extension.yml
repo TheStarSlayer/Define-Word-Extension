@@ -28,7 +28,7 @@ on:
 env:
   DISPLAY_NAME: ${{ vars.DISPLAY_NAME || 'Define Word' }}
   EXTENSION_NAME: ${{ vars.EXTENSION_NAME || 'DefineWordExtension' }}
-  FOLDER_NAME: ${{ vars.FOLDER_NAME || 'DefineWordExtension' }}
+  FOLDER_NAME: ${{ vars.FOLDER_NAME || 'DefineWordExtension/DefineWordExtension' }}
   GITHUB_REPO_URL: ${{ vars.GITHUB_REPO_URL || 'https://github.com/TheStarSlayer/Define-Word-Extension' }}
 
 
@@ -43,10 +43,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Setup .NET 9
+    - name: Setup .NET 10
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x'
+        dotnet-version: '10.0.203'
     
     - name: Install Inno Setup
       run: choco install innosetup -y --no-progress

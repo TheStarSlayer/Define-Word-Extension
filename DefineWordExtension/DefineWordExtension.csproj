@@ -71,6 +71,7 @@
     <!-- When publishing trimmed, make sure to treat trimming warnings as build errors -->
     <ILLinkTreatWarningsAsErrors>true</ILLinkTreatWarningsAsErrors>
     <PackageCertificateThumbprint>A32DD761528BA91300369A55B8B939BEBE85E3B5</PackageCertificateThumbprint>
+	<AppxPackageVersion>1.3.0.0</AppxPackageVersion>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <DefaultLanguage>en-in</DefaultLanguage>
 

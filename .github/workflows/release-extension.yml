@@ -28,7 +28,7 @@ on:
 env:
   DISPLAY_NAME: ${{ vars.DISPLAY_NAME || 'Define Word' }}
   EXTENSION_NAME: ${{ vars.EXTENSION_NAME || 'DefineWordExtension' }}
-  FOLDER_NAME: ${{ vars.FOLDER_NAME || 'DefineWordExtension/DefineWordExtension' }}
+  FOLDER_NAME: ${{ vars.FOLDER_NAME || 'DefineWordExtension' }}
   GITHUB_REPO_URL: ${{ vars.GITHUB_REPO_URL || 'https://github.com/TheStarSlayer/Define-Word-Extension' }}
 
 

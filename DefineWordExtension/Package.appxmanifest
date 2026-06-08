@@ -9,8 +9,8 @@
   IgnorableNamespaces="uap uap3 rescap">
 
   <Identity
-    Name="DefineWordExtension"
-    Publisher="CN=DefineWordExtension"
+    Name="TheStarSlayer.DefineWord"
+    Publisher="CN=307DF437-6C4E-4C99-8BEE-2338E9D0C164"
     Version="1.3.0.0" />
   <!-- When you're ready to publish your extension, you'll need to change the
        Publisher= to match your own identity -->
@@ -18,7 +18,7 @@
   <Properties>
     <DisplayName>Define Word</DisplayName>
     <PublisherDisplayName>TheStarSlayer</PublisherDisplayName>
-    <Logo>Assets\dict.png</Logo>
+    <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -39,10 +39,10 @@
         Description="Type a word to get its definition."
 		AppListEntry="none"
         BackgroundColor="transparent"
-        Square150x150Logo="Assets\dict150x150.png"
-        Square44x44Logo="Assets\dict44x44.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\dict310x150.png" />
-        <uap:SplashScreen Image="Assets/SplashScreen.png"/>
+        Square150x150Logo="Assets\LargeTile.png"
+        Square44x44Logo="Assets\SmallTile.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png"/>
       </uap:VisualElements>
       <Extensions>
         <com:Extension Category="windows.comServer">

@@ -1,0 +1,3 @@
+[Files]
+"D:\Code\CmdPalExt\Define-Word-Extension\DefineWordExtension\AppPackages\x64\DefineWordExtension_1.3.0.0_x64_Test\DefineWordExtension_1.3.0.0_x64.msix" "DefineWordExtension_1.3.0.0_x64.msix"
+"D:\Code\CmdPalExt\Define-Word-Extension\DefineWordExtension\AppPackages\ARM64\DefineWordExtension_1.3.0.0_arm64_Test\DefineWordExtension_1.3.0.0_arm64.msix" "DefineWordExtension_1.3.0.0_arm64.msix"
